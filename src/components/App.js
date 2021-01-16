@@ -24,10 +24,15 @@ function App() {
     setMoney(money => money - sushi.price)
   }
 
+  function addMoney() {
+    setMoney(money => money + 50)
+  }
+
   return (
     <div className="app">
       <SushiContainer sushis={sushis} emptyPlateAdd={handleSushiEaten} money={money}/>
       <Table plates={plates} money={money}/>
+      <button onClick={addMoney}>Add more money lole</button>
     </div>
   );
 }

@@ -7,13 +7,18 @@ function SushiContainer({ sushis, emptyPlateAdd, money}) {
   const [sushiEnd, setSushiEnd] = useState(4)
   
 
-  const sushiArray = sushis.map(sushi => 
-    <Sushi key={sushi.id} sushi={sushi} emptyPlateAdd={emptyPlateAdd} money={money}/>
-  )
+  const sushiArray = sushis.map(sushi => {
+    return <Sushi key={sushi.id} sushi={sushi} emptyPlateAdd={emptyPlateAdd} money={money}/>
+  })
 
   const handleMoreSushi = () => {
-    setSushiStart(sushiStart => sushiStart + 4)
-    setSushiEnd(sushiEnd => sushiEnd + 4)
+    if (sushiEnd < 99) {
+      setSushiStart(sushiStart => sushiStart + 4)
+      setSushiEnd(sushiEnd => sushiEnd + 4)
+    } else {
+      setSushiStart(0)
+      setSushiEnd(4)
+    }
   }
 
 
